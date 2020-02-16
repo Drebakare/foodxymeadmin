@@ -60,3 +60,15 @@ Route::post('/loadmore','web\HomeController@loadmore');
 
 Route::get('/test','web\CartController@test');
 
+
+
+/*Admin routes start here....please dont touch anything here */
+
+Route::get('admin/dashboard', function () {
+    return view('Admin.Pages.dashboard');
+});
+
+Route::get('/request-access',[
+    'uses' => 'Homepage\HomepageController@displayRequestForm',
+    'as' => 'request_form'
+]);
