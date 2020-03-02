@@ -40,14 +40,33 @@ class User extends Authenticatable
     ];
 
     public function role(){
-        $this ->hasOne(Role::class);
+        return $this ->hasOne(Role::class);
     }
 
     public function vendor(){
-        $this-> hasOne(Vendor::class);
+        return $this-> hasOne(Vendor::class);
+    }
+
+    public function ordersummaries(){
+        return $this->hasMany(Ordersummary::class);
     }
 
     public function customer(){
-        $this-> hasOne(Customer::class);
+        return $this-> hasOne(Customer::class);
+    }
+
+    public static function checkUser($email){
+        $check_status = User::where('email',$email)->first();
+        if ($check_status){
+            return true;
+        }
+        else{
+            return false;
+        }
+    }
+
+    public static function getAllVendors(){
+        $vendors = User::where('role_id', 2)->get();
+        return $vendors;
     }
 }

@@ -14,5 +14,9 @@ class Customer extends Model
     public function user (){
         return $this->belongsTo(User::class);
     }
+    public static function getAllCustomers(){
+        $customers = User::where('role_id', 1)->get();
+        return $customers;
+    }
 
 }

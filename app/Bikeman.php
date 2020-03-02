@@ -15,4 +15,8 @@ class Bikeman extends Model
         return $this->belongsTo(User::class);
     }
 
+    public static function getAllBikeMen(){
+        $bikemen = User::where('role_id', 3)->get();
+        return $bikemen;
+    }
 }

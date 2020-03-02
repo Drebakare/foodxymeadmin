@@ -21,6 +21,7 @@
     <link href="{{asset('_admin/main/css/colors/default.css')}}" id="theme" rel="stylesheet">
     <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
     <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css">
 </head>
 <body class="fix-header fix-sidebar card-no-border">
     <div id="main-wrapper">
@@ -52,9 +53,11 @@
     <script src="{{asset('_admin/assets/vendors/knob/jquery.knob.js')}}"></script>
     <script src="{{asset('_admin/main/js/knob-init.js')}}"></script>
     <script src="{{asset('_admin/assets/vendors/styleswitcher/jQuery.style.switcher.js')}}"></script>
+    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
     @yield("page_scripts")
     <script type="text/javascript">
         @if(session('failure'))
+        console.log("its here");
         toastr.error('{{session("failure")}}');
         @endif
         @if(session('success'))
